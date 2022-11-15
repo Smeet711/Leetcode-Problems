@@ -32,32 +32,22 @@ class Solution {
     static int longestPerfectPiece(int[] arr, int N) {
         // code here
         
-        int min = arr[0];
-        int max = arr[0];
+        int i=0;
+        int j=0;
+        int ans=0;
         
-        int count=1;
-        int maxCount = 1;
-        
-        for(int i=1;i<N;i++){
-            if(arr[i] > max){
-                max = arr[i];
+        while(i < N){
+            if(Math.abs(arr[i] - arr[j] ) <= 1){
+                ans = Math.max(ans,i-j+1);
+                i++;
+            }else{
+                if(Math.abs(arr[i] - arr[j]) > 1){
+                    j++;
+                }
+                
             }
-            
-            if(arr[i] < min){
-                min = arr[i];
-            }
-            
-            if(max - min > 1){
-                max = arr[i];
-                min = arr[i];
-                count=0;
-            }
-            
-            count++;
-            maxCount = Math.max(maxCount,count);
-            
         }
+        return ans;
         
-     return maxCount;  
     }
 };
