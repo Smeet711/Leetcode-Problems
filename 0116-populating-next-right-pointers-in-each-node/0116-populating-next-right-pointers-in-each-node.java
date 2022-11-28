@@ -31,14 +31,13 @@ class Solution {
         if(root.left != null){
             root.left.next = root.right;
             if(root.next != null){
-                root.right.next = root.next.left;
+                root.right.next = root.next.left; // for poinitng other subtree eg 5 -> 6 if root=2
             }
         }
         
         Node left = connect(root.left);
         Node right = connect(root.right);
-        
-        
+         
         return root;
     }
 }
