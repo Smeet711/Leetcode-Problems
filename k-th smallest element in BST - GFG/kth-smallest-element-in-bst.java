@@ -103,23 +103,23 @@ class GFG {
 // }
 
 class Solution {
-    
     int count,ans;
     
     public void recurInorder(Node root,int k){
+        
         if(root == null){
             return;
         }
         
         recurInorder(root.left,k);
         count++;
-        
         if(count == k){
             ans = root.data;
         }
-        
         recurInorder(root.right,k);
+    
     }
+    
     
     
     // Return the Kth smallest element in the given BST
@@ -131,6 +131,6 @@ class Solution {
         
         recurInorder(root,K);
         
-       return ans;
+        return ans;
     }
 }
